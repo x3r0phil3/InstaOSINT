@@ -1,0 +1,7 @@
+pystyle
+opencv-python
+colorama
+prettytable
+matplotlib
+geopy
+instagrapi
