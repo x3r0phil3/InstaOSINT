@@ -163,23 +163,20 @@ def cmd_fwingsnumber(target):
 def get_followings(target):
     count = 0
     usrid = get_user_id(target)
-    t = PrettyTable()
-    t.field_names = ["ID", "Username"]
     following = api.user_following(usrid)
-    #sys.stdout.write(Fore.YELLOW + " "*6 + f"\rCatched {count} usernames and IDs ! \n")
-    #sys.stdout.flush()
     for follow in following.keys():
         try:
             usrinfo = api.user_info(follow)
             count = count + 1
-            #sys.stdout.write(Fore.YELLOW + " "*6 + f"Catched {count} usernames and IDs !\n")
-            #sys.stdout.flush()
-            t.add_row([usrinfo.pk, usrinfo.username])
+            with open('usernames.json', 'a') as f:
+                json.dump({usrinfo.pk: usrinfo.username}, f)
+                f.write('\n')
         except:
             print("Exception finding 1 following")
     print('\n'*3)
-    print(Center.XCenter(Fore.YELLOW + str(t)))
+    print(Fore.YELLOW + f"Catched {count} usernames and IDs !\n")
     print('\n'*2)
+
 
 def cmd_fwersnumber(target):
     count = 0
