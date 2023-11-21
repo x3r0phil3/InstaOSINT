@@ -86,7 +86,6 @@ def cmd_tagged(target):
     print('\n'*2)
 
 
-
 def cmd_fwersemail(target):
     count = 0
     usrid = get_user_id(target)
