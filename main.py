@@ -22,13 +22,13 @@ init()
 count = 0
 table = PrettyTable()
 target = None
-config = json.load(open('./config/config.json'))
+config = json.load(open('config.json'))
 isprivate = False
 api = Client()
-api.login(config['username'], config['password'])
+#api.login(config['username'], config['password'])
 # Main
 
-osintgram = """
+osintgram = r"""
   ________    _________.___ ____________________________________    _____      _____   
   \_____  \  /   _____/|   |\      \__    ___/  _____/\______   \  /  _  \    /     \  
    /   |   \ \_____  \ |   |/   |   \|    | /   \  ___ |       _/ /  /_\  \  /  \ /  \ 
